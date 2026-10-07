@@ -1,0 +1,138 @@
+@import "tailwindcss";
+
+/* Desk under a lamp: beige "platinum" hardware on a desk mat.
+   Every color is a token so light and dark both work. */
+:root {
+  --bg: #d5d2c9;
+  --surface: #e4e1d9;
+  --ink: #1c1b18;
+  --ink-2: #57544c;
+  --line: #b4b0a5;
+  --plastic: #e7e0cf;
+  --plastic-shade: #b6ad97;
+  --keyink: #2a2824;   /* printed on beige caps, same in both themes */
+  --paper: #f6f4ee;    /* floppy label stock */
+  --paper-ink: #1c1b18;
+  --disk: #2b2e36;
+  --signal: #c9440c;
+  --phosphor: #ffb000;
+  --ok: #2f9e44;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #131312; --surface: #1c1c1a; --ink: #ece9e1; --ink-2: #a39f95; --line: #34332f;
+    --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #ff6a2b;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #131312; --surface: #1c1c1a; --ink: #ece9e1; --ink-2: #a39f95; --line: #34332f;
+  --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #ff6a2b;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-line: var(--line);
+  --color-plastic: var(--plastic);
+  --color-plastic-shade: var(--plastic-shade);
+  --color-keyink: var(--keyink);
+  --color-paper: var(--paper);
+  --color-paper-ink: var(--paper-ink);
+  --color-disk: var(--disk);
+  --color-signal: var(--signal);
+  --color-phosphor: var(--phosphor);
+  --color-ok: var(--ok);
+
+  --font-display: var(--font-unbounded), "Arial Black", system-ui, sans-serif;
+  --font-sans: var(--font-instrument), "Helvetica Neue", Arial, sans-serif;
+  --font-mono: var(--font-plex), ui-monospace, Menlo, monospace;
+  --font-crt: var(--font-vt323), ui-monospace, monospace;
+}
+
+@layer base {
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible { outline: 2px solid var(--signal); outline-offset: 3px; border-radius: 4px; }
+}
+
+@layer components {
+  .label {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .wrap { max-width: 1180px; margin-inline: auto; padding-inline: 20px; }
+
+  .beacon {
+    width: 8px; height: 8px; border-radius: 9999px; background: var(--ok);
+    animation: beacon 2.4s infinite;
+  }
+
+  .chip {
+    font-family: var(--font-mono); font-size: 0.875rem; cursor: pointer;
+    background: var(--surface); color: var(--ink);
+    border: 1px solid var(--line); border-radius: 9999px; padding: 7px 14px;
+    transition: border-color .15s, transform .15s;
+  }
+  .chip::before { content: "> "; color: var(--signal); }
+  .chip:hover { border-color: var(--ink-2); transform: translateY(-1px); }
+
+  /* floppy disk card */
+  .disk {
+    position: relative; background: var(--disk);
+    border-radius: 6px 22px 6px 6px; padding: 54px 18px 18px;
+    box-shadow: 0 1px 0 rgb(255 255 255 / .06) inset, 0 18px 30px -18px rgb(0 0 0 / .5);
+  }
+  .disk::before { content: ""; position: absolute; top: 0; left: 30%; width: 40%; height: 40px;
+    background: linear-gradient(180deg, #cfd2d8, #9ea3ad); border-radius: 0 0 3px 3px; }
+  .disk::after { content: ""; position: absolute; top: 8px; left: 52%; width: 9%; height: 24px;
+    background: #2a2c31; border-radius: 2px; }
+  .disk[data-lit="true"] { outline: 2px solid var(--phosphor); outline-offset: 4px; }
+  .disk-paper {
+    background: var(--paper); color: var(--paper-ink); border-radius: 3px; padding: 16px 18px 18px;
+    background-image: repeating-linear-gradient(180deg, transparent 0 27px, #d9e3ef 27px 28px);
+  }
+
+  /* mechanical keycap */
+  .deck {
+    background: linear-gradient(180deg, var(--plastic), color-mix(in srgb, var(--plastic) 82%, var(--plastic-shade)));
+    border-radius: 20px; padding: 22px;
+    box-shadow: 0 2px 0 var(--plastic-shade), 0 24px 44px -24px rgb(0 0 0 / .45);
+  }
+  .keycap {
+    --base: #a89f88;
+    position: relative; display: flex; flex-direction: column; justify-content: space-between;
+    min-height: 76px; padding: 9px 10px 8px; color: var(--keyink); text-align: left; cursor: pointer;
+    background: linear-gradient(180deg, #f3eee2, #e2dac6); border-radius: 9px;
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .85), 0 5px 0 var(--base), 0 8px 10px rgb(0 0 0 / .18);
+    transition: box-shadow .08s;
+  }
+  .keycap[data-down="true"] {
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / .6), 0 1px 0 var(--base), 0 2px 4px rgb(0 0 0 / .18);
+  }
+  .keycap-accent { --base: #8f2f07; background: linear-gradient(180deg, #e8693a, #c9440c); color: #fff8f0; }
+  .keycap .what { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: .04em; text-transform: uppercase; opacity: .75; }
+
+  .led { display: inline-flex; align-items: center; gap: 6px; }
+  .led i { width: 7px; height: 7px; border-radius: 9999px; background: #8a8371; }
+  .led[data-on="true"] i { background: var(--ok); box-shadow: 0 0 6px var(--ok); }
+}
+
+@keyframes beacon {
+  0% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--ok) 55%, transparent); }
+  70%, 100% { box-shadow: 0 0 0 8px transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .beacon { animation: none; }
+  .chip { transition: none; }
+}
