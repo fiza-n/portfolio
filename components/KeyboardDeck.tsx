@@ -33,7 +33,9 @@ const KEYS: KeyDef[] = [
       setTimeout(focusTerminal, 700);
     },
   },
-  { key: "g", cap: "G", what: "GitHub ↗", href: site.links.github, span: "w2" },
+  { key: "g", cap: "G", what: "GitHub ↗", href: site.links.github },
+  { key: "l", cap: "L", what: "LinkedIn ↗", href: site.links.linkedin },
+  { key: "i", cap: "I", what: "Instagram ↗", href: site.links.instagram },
   { key: " ", cap: "SPACE", what: "CRT power", span: "space", action: () => terminal.setPower(!terminal.power) },
 ];
 

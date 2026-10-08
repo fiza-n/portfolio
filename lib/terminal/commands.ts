@@ -61,7 +61,9 @@ export function buildCommands(t: TerminalEngine, site: Site): Record<string, Com
       description: "how to reach me",
       run() {
         t.print("GitHub     " + short(site.links.github));
-        t.print("Or press G on the control deck below.", "dim");
+        t.print("LinkedIn   " + short(site.links.linkedin));
+        t.print("Instagram  " + short(site.links.instagram));
+        t.print("Or press G / L / I on the control deck below.", "dim");
       },
     },
     ls: { description: "list files", run: () => t.print(Object.keys(files).join("    ") + "    disks/") },
@@ -99,7 +101,7 @@ export function buildCommands(t: TerminalEngine, site: Site): Record<string, Com
         if (a.join(" ") === "hire-me") {
           t.print("[sudo] password for visitor: ********", "dim");
           t.print("Permission granted. Good choice.", "hot");
-          t.print("Say hi on GitHub: " + short(site.links.github));
+          t.print("Send a message on LinkedIn: " + short(site.links.linkedin));
           setTimeout(() => {
             t.actions.blur();
             t.actions.scrollTo("contact");

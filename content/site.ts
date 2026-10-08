@@ -54,6 +54,8 @@ export const site = {
   ] as const,
   links: {
     github: "https://github.com/fiza-n",
+    linkedin: "https://www.linkedin.com/in/fizanoor11",
+    instagram: "https://www.instagram.com/thestacklog",
   },
 };
 
