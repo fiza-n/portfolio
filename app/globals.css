@@ -15,7 +15,9 @@
   --paper-ink: #1c1b18;
   --disk: #2b2e36;
   --signal: #c9440c;
-  --phosphor: #ffb000;
+  --phosphor: #51d6be;
+  --tiber: #06392f;      /* deep green, CRT body tone */
+  --glow: rgba(15,138,115,0.6); /* soft green light around the monitor */
   --ok: #2f9e44;
 }
 @media (prefers-color-scheme: dark) {

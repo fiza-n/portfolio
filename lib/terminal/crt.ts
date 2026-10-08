@@ -5,10 +5,10 @@ const W = 1024;
 const H = 768;
 const PAD = 46;
 const LINE_H = 30;
-const COLORS: Record<Tone, string> = { normal: "#ffb347", dim: "#b0782b", hot: "#fff1c9", error: "#ff7b54" };
+const COLORS: Record<Tone, string> = { normal: "#51d6be", dim: "#358d7d", hot: "#c9f7ef", error: "#ff7b54" };
 
 /**
- * Draws the terminal into an offscreen 2D canvas (amber phosphor, scanlines, vignette).
+ * Draws the terminal into an offscreen 2D canvas (tiber-green phosphor, scanlines, vignette).
  * The R3F screen uses that canvas as a CanvasTexture; the no-WebGL fallback shows it directly.
  */
 export class CRT {
@@ -50,13 +50,13 @@ export class CRT {
     const c = this.ctx;
     const t = this.engine;
     c.save();
-    c.fillStyle = "#0c0904";
+    c.fillStyle = "#021511";
     c.fillRect(0, 0, W, H);
 
     if (t.power) {
       c.font = this.font;
       c.textBaseline = "top";
-      c.shadowColor = "rgba(255,170,60,0.55)";
+      c.shadowColor = "rgba(81,214,190,0.6)";
       c.shadowBlur = 8;
       const rows = Math.floor((H - PAD * 2) / LINE_H);
       const promptLines = t.busy ? [] : t.wrap(t.prompt + t.input);
@@ -88,12 +88,12 @@ export class CRT {
       c.fillStyle = "rgba(0,0,0,0.22)";
       for (let sy = 0; sy < H; sy += 4) c.fillRect(0, sy, W, 2);
       const g = c.createRadialGradient(W / 2, H / 2, H * 0.35, W / 2, H / 2, H * 0.85);
-      g.addColorStop(0, "rgba(255,160,40,0.05)");
+      g.addColorStop(0, "rgba(60,220,190,0.06)");
       g.addColorStop(1, "rgba(0,0,0,0.55)");
       c.fillStyle = g;
       c.fillRect(0, 0, W, H);
     } else {
-      c.fillStyle = "rgba(255,200,120,0.5)";
+      c.fillStyle = "rgba(150,240,225,0.5)";
       c.beginPath();
       c.arc(W / 2, H / 2, 3, 0, Math.PI * 2);
       c.fill();

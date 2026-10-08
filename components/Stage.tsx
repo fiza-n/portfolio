@@ -49,6 +49,11 @@ export function Stage() {
       className="relative h-[clamp(320px,82vw,520px)] min-w-0 cursor-text min-[880px]:h-[clamp(380px,52vw,620px)]"
       aria-label="Interactive retro workstation. Click to use its terminal."
     >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+        style={{ background: "radial-gradient(ellipse 62% 56% at 54% 40%, var(--glow), transparent 72%)", filter: "blur(24px)" }}
+      />
       <WorkstationCanvas stageRef={ref} visible={visible} />
       <TerminalInput />
       {focused && (
