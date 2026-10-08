@@ -26,7 +26,7 @@ export function Hero() {
       <div className="wrap grid grid-cols-1 items-center gap-6 pb-2 pt-7 min-[880px]:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] min-[880px]:pb-6 min-[880px]:pt-12">
         <div className="min-w-0">
           <div className="label">{site.role}</div>
-          <h1 className="mb-5 mt-3.5 font-display text-[clamp(2.6rem,6.4vw,5.2rem)] font-extrabold leading-[0.95] tracking-[-0.04em]">
+          <h1 className="mb-5 mt-3.5 font-display text-[clamp(2.2rem,5.2vw,4.2rem)] font-extrabold leading-[0.95] tracking-[-0.04em]">
             {["Fiza Noor", "builds backends."].map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.06em]">
                 <motion.span className={`block ${i === 1 ? "text-signal" : ""}`} variants={rise} initial="hidden" animate="show" custom={i}>
