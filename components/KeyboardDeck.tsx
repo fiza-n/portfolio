@@ -77,19 +77,20 @@ export function KeyboardDeck() {
               <span className="led" data-on={sound}><i />Sound</span>
             </span>
           </div>
-          <div className="grid grid-cols-4 gap-2.5 min-[880px]:grid-cols-8">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {KEYS.map((k) => {
               const isDown = down === k.key;
               const cls = [
-                "keycap",
+                "keycap min-w-0 shrink-0 grow-0",
                 k.accent ? "keycap-accent" : "",
-                k.span === "w2" ? "col-span-2" : "",
-                k.span === "space" ? "col-span-full !min-h-[54px] !flex-row items-center justify-center gap-3 min-[880px]:col-start-2 min-[880px]:col-span-6" : "",
+                k.span === "space"
+                  ? "basis-full !min-h-[54px] !flex-row items-center justify-center gap-3 min-[880px]:basis-[calc((100%-62px)*5/7+40px)]"
+                  : "basis-[calc((100%-32px)/4)] min-[880px]:basis-[calc((100%-62px)/7)]",
               ].join(" ");
               const inner = (
                 <>
                   <span className="font-display text-lg font-bold leading-none">{k.cap}</span>
-                  <span className="what">{k.what}</span>
+                  <span className="what max-[879px]:!text-[0.58rem] max-[879px]:!tracking-normal">{k.what}</span>
                 </>
               );
               const motionProps = {
