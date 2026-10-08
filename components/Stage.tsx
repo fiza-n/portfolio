@@ -63,7 +63,7 @@ export function Stage() {
           Esc · step back
         </button>
       )}
-      <span className="label absolute bottom-1.5 right-2">ZZ-26 · 640K OK</span>
+      <span className="label absolute bottom-1.5 right-2">FN-26 · 640K OK</span>
       <LiveRegion />
     </div>
   );

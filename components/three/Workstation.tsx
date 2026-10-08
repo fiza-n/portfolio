@@ -82,7 +82,7 @@ function Badge() {
     ctx.fillStyle = "#6b6352";
     ctx.font = `500 30px ${mono}`;
     ctx.textBaseline = "middle";
-    ctx.fillText("ZZ-26", 4, 26);
+    ctx.fillText("FN-26", 4, 26);
     ["#e0402a", "#f08a24", "#f2c230", "#4fa84a", "#2f7ec9"].forEach((col, i) => {
       ctx.fillStyle = col;
       ctx.fillRect(132 + i * 18, 14, 14, 22);

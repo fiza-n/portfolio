@@ -4,7 +4,7 @@
  * Called with what the visitor has typed so far and the visible command names.
  * Return the string that should replace the input.
  *
- * TODO(Zain): this is a design decision, not boilerplate. Pick a behavior:
+ * TODO(Fiza): this is a design decision, not boilerplate. Pick a behavior:
  *  - Bash-style: complete the shared prefix of all matches
  *    ("h" -> "h", since help/history share only "h"; "he" -> "help ").
  *  - Cycle: each Tab steps to the next match (needs a little state).

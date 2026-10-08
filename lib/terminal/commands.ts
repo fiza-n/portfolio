@@ -24,8 +24,8 @@ export function buildCommands(t: TerminalEngine, site: Site): Record<string, Com
     about: {
       description: "who is behind this machine",
       run() {
-        t.print(`${site.name}. Full-stack engineer, mostly backend and AI.`, "hot");
-        t.print("Runs Bytes Limited, a product studio building its own software for businesses in Pakistan. Explains how local apps work as Code With Zain.");
+        t.print(`${site.name}. Software engineering student, aiming at backend and applied AI/ML.`, "hot");
+        t.print("Third year at MAJU, Karachi. Building FastAPI, Redis and Next.js projects, and researching a Linux syscall tracer with a faculty supervisor.");
       },
     },
     projects: {
@@ -60,9 +60,8 @@ export function buildCommands(t: TerminalEngine, site: Site): Record<string, Com
     contact: {
       description: "how to reach me",
       run() {
-        t.print("LinkedIn   " + short(site.links.linkedin));
-        t.print("Instagram  " + short(site.links.instagram));
-        t.print("Or press L / I on the control deck below.", "dim");
+        t.print("GitHub     " + short(site.links.github));
+        t.print("Or press G on the control deck below.", "dim");
       },
     },
     ls: { description: "list files", run: () => t.print(Object.keys(files).join("    ") + "    disks/") },
@@ -100,7 +99,7 @@ export function buildCommands(t: TerminalEngine, site: Site): Record<string, Com
         if (a.join(" ") === "hire-me") {
           t.print("[sudo] password for visitor: ********", "dim");
           t.print("Permission granted. Good choice.", "hot");
-          t.print("Send a message on LinkedIn: " + short(site.links.linkedin));
+          t.print("Say hi on GitHub: " + short(site.links.github));
           setTimeout(() => {
             t.actions.blur();
             t.actions.scrollTo("contact");

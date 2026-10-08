@@ -33,8 +33,7 @@ const KEYS: KeyDef[] = [
       setTimeout(focusTerminal, 700);
     },
   },
-  { key: "l", cap: "L", what: "LinkedIn ↗", href: site.links.linkedin, span: "w2" },
-  { key: "i", cap: "I", what: "Instagram ↗", href: site.links.instagram, span: "w2" },
+  { key: "g", cap: "G", what: "GitHub ↗", href: site.links.github, span: "w2" },
   { key: " ", cap: "SPACE", what: "CRT power", span: "space", action: () => terminal.setPower(!terminal.power) },
 ];
 
@@ -117,7 +116,7 @@ export function KeyboardDeck() {
           </div>
         </div>
         <div className="label mt-6 flex flex-wrap justify-between gap-3">
-          <span>© 2026 {site.name} · Bytes Limited</span>
+          <span>© 2026 {site.name}</span>
           <span>Built with Next.js, React Three Fiber, Lenis and GSAP</span>
         </div>
       </div>

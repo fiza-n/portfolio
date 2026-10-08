@@ -147,11 +147,11 @@ export class TerminalEngine {
     if (this.booted && !force) return; // React strict mode mounts twice
     this.booted = true;
     const seq: [string, Tone][] = [
-      ["BYTES BIOS v2.6  (c) 2026 Bytes Limited", "dim"],
+      ["FN BIOS v2.6  (c) 2026 Fiza Noor", "dim"],
       ["Memory test: 640K OK", "dim"],
-      ["Detecting drives... A: 1.44M  C: ZZ-OS", "dim"],
+      ["Detecting drives... A: 1.44M  C: FN-OS", "dim"],
       ["", "normal"],
-      ["ZZ-OS 26.10 ready. Welcome, visitor.", "hot"],
+      ["FN-OS 26.10 ready. Welcome, visitor.", "hot"],
       ["Type 'help' to see what this machine can do.", "normal"],
     ];
     this.busy = true;

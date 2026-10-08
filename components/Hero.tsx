@@ -27,7 +27,7 @@ export function Hero() {
         <div className="min-w-0">
           <div className="label">{site.role}</div>
           <h1 className="mb-5 mt-3.5 font-display text-[clamp(2.6rem,6.4vw,5.2rem)] font-extrabold leading-[0.95] tracking-[-0.04em]">
-            {["Zain Zahid", "ships systems."].map((line, i) => (
+            {["Fiza Noor", "builds backends."].map((line, i) => (
               <span key={line} className="block overflow-hidden pb-[0.06em]">
                 <motion.span className={`block ${i === 1 ? "text-signal" : ""}`} variants={rise} initial="hidden" animate="show" custom={i}>
                   {line}

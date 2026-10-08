@@ -29,11 +29,11 @@ export function TopBar() {
           }}
           className="font-display text-[0.95rem] font-bold tracking-tight no-underline"
         >
-          ZAIN ZAHID
+          FIZA NOOR
         </a>
         <span className="label inline-flex items-center gap-2">
           <span className="beacon" aria-hidden="true" />
-          Taking on select projects
+          Open to internships
         </span>
         <span className="flex-1" />
         <span className="label tabular-nums">PKT {time}</span>

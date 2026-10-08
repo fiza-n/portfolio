@@ -10,8 +10,8 @@ const plex = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500"], variabl
 const vt323 = VT323({ subsets: ["latin"], weight: "400", variable: "--font-vt323" });
 
 export const metadata: Metadata = {
-  title: "Zain Zahid · Engineering Workstation",
-  description: "Full-stack engineer focused on backend systems and AI. Founder of Bytes Limited.",
+  title: "Fiza Noor · Engineering Workstation",
+  description: "Software engineering student focused on backend systems and applied AI/ML. Based in Karachi, Pakistan.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
