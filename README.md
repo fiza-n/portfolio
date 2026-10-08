@@ -1,4 +1,4 @@
-# ZZ-26 Workstation
+# FN-26 Workstation
 
 Fiza Noor's portfolio: a 3D late-80s workstation whose CRT runs a real terminal.
 
