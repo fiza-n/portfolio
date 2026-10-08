@@ -14,7 +14,7 @@
   --paper: #f6f4ee;    /* floppy label stock */
   --paper-ink: #1c1b18;
   --disk: #2b2e36;
-  --signal: #c9440c;
+  --signal: #0a5a49;
   --phosphor: #51d6be;
   --tiber: #06392f;      /* deep green, CRT body tone */
   --glow: rgba(15,138,115,0.6); /* soft green light around the monitor */
@@ -23,13 +23,13 @@
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #131312; --surface: #1c1c1a; --ink: #ece9e1; --ink-2: #a39f95; --line: #34332f;
-    --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #ff6a2b;
+    --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #3ee0c0;
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
   --bg: #131312; --surface: #1c1c1a; --ink: #ece9e1; --ink-2: #a39f95; --line: #34332f;
-  --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #ff6a2b;
+  --plastic: #d3cbb8; --plastic-shade: #8d8673; --disk: #3a3e49; --signal: #3ee0c0;
   color-scheme: dark;
 }
 
@@ -122,7 +122,7 @@
   .keycap[data-down="true"] {
     box-shadow: inset 0 1px 0 rgb(255 255 255 / .6), 0 1px 0 var(--base), 0 2px 4px rgb(0 0 0 / .18);
   }
-  .keycap-accent { --base: #8f2f07; background: linear-gradient(180deg, #e8693a, #c9440c); color: #fff8f0; }
+  .keycap-accent { --base: #04352b; background: linear-gradient(180deg, #17806a, #0a5a49); color: #eafffa; }
   .keycap .what { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: .04em; text-transform: uppercase; opacity: .75; }
 
   .led { display: inline-flex; align-items: center; gap: 6px; }
@@ -137,4 +137,22 @@
 @media (prefers-reduced-motion: reduce) {
   .beacon { animation: none; }
   .chip { transition: none; }
+}
+
+/* Big green glow in the middle of the page, fixed behind everything */
+.center-glow {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  width: min(86vmin, 900px);
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(52, 211, 178, 0.55) 0%, rgba(15, 138, 115, 0.35) 38%, rgba(6, 57, 47, 0.12) 62%, transparent 72%);
+  filter: blur(36px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .center-glow { opacity: 0.8; }
 }

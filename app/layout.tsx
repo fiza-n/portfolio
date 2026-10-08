@@ -18,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${unbounded.variable} ${instrument.variable} ${plex.variable} ${vt323.variable}`}>
       <body>
+        <div aria-hidden="true" className="center-glow" />
         <Providers>{children}</Providers>
       </body>
     </html>
