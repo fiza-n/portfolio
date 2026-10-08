@@ -28,7 +28,7 @@ export function Specs() {
           </dl>
           <div className="flex flex-wrap justify-between gap-3 pt-3 text-xs text-ink-2">
             <span>Input: coffee, 220V~ 50Hz</span>
-            <span>Serial No. BL-2026-0001</span>
+            <span>Serial No. FN-2026-0001</span>
           </div>
         </div>
       </div>
